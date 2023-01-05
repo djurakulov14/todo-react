@@ -1,0 +1,10 @@
+@import url(../../App.scss);
+
+.MyButton{
+    padding: 10px;
+    background-color: transparent;
+    color: var(--mainColor);
+    border: 2px solid var(--mainColor);
+    font-size: 15px;
+    margin-right: 10px;
+}

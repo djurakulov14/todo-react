@@ -1,0 +1,11 @@
+@import url(../../App.scss);
+
+.MyPosts {
+    padding: 20px;
+    border: 2px solid var(--mainColor);
+    margin-bottom: 15px;
+    // transition: 500ms;
+    p,h2 {
+        text-decoration: none;
+    }
+}
