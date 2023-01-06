@@ -15,7 +15,7 @@ export const Login = () => {
         alert("Заполните поле")
       } else {
         setAuth(info)
-        localStorage.setItem('auth', 'true')
+        localStorage.setItem('auth', true)
       }
 
   }

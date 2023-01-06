@@ -44,21 +44,24 @@ export const HomePage = () => {
     <>
         <Header filter={filter} setFilter={setFilter} arr={arr} setArr={setArr} />
         {
-        loading ? <Loader/>
-        :
-        <div className="container">
-          <TransitionGroup>
-            {searchedPosts.map((item, index) => 
-            <CSSTransition
-            key={item.id}
-            timeout={500}
-            classNames="item"
-          >
-            <MyPost key={item.id} item={item} number={index + 1} remove={removePost}/>
-            </CSSTransition>
-            )}
-          </TransitionGroup>
-        </div>
+          searchedPosts.length == 0 ? 
+          <center><h1>Ничего не найдено!</h1></center>
+          :
+          loading ? <Loader/>
+          :
+          <div className="container">
+            <TransitionGroup>
+              {searchedPosts.map((item, index) => 
+              <CSSTransition
+              key={item.id}
+              timeout={500}
+              classNames="item"
+            >
+              <MyPost key={item.id} item={item} number={index + 1} remove={removePost}/>
+              </CSSTransition>
+              )}
+            </TransitionGroup>
+          </div>
         }
     </>
   )

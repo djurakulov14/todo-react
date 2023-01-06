@@ -10,6 +10,7 @@ function App() {
   const [auth, setAuth] = useState(false)
   useEffect(() => {
     let log = localStorage.getItem('auth')
+    setAuth(log)
   }, [])
   
 
@@ -20,7 +21,7 @@ function App() {
     }}>
       {
         auth ?
-        <Routes>
+      <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/postPage' element={<PostPage/>}/>
       </Routes>

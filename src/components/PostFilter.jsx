@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../Context/Auth';
+import { MyButton } from './MyButton/MyButton';
 import MyInput from "./MyInput/MyInput";
 import MySelect from "./MySelect/MySelect";
 
 const PostFilter = ({filter, setFilter}) => {
+  const {auth, setAuth} = useContext(AuthContext)
+
+  function logOut() {
+    setAuth(false)
+    localStorage.removeItem('auth')
+  }
     return (
         <div>
             <MyInput
@@ -19,6 +27,7 @@ const PostFilter = ({filter, setFilter}) => {
                     {value: 'body', name: 'По описанию'},
                 ]}
             /> */}
+            <MyButton style={{backgroundColor: "white"}} onClick={logOut}>Log out</MyButton>
         </div>
     );
 };
