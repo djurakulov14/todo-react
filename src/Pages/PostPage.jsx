@@ -8,12 +8,12 @@ export const PostPage = () => {
 
   const {state} = useLocation()
 
-  // const {request, error, loading} = useHttp()
+  const {request, error, loading} = useHttp()
 
-  // useEffect(() => {
-  //   request('http://localhost:7777/todos/' + state)
-  //     .then(res => setInfo(res))
-  // }, [])
+  useEffect(() => {
+    request('http://localhost:7777/todos/' + state)
+      .then(res => setInfo(res))
+  }, [])
 
   const completedStyles = {
     fontWeight: 600,
@@ -28,10 +28,10 @@ export const PostPage = () => {
   return (
     <>
     <Header id={state}/>
-    {/* <div className='postPage'>
+    <div className='postPage'>
       <h1>{info.title}</h1>
       {info.completed ? <h3 style={completedStyles}>completed</h3> : <h3 style={UNcompletedStyles}>uncompleted</h3>}
-    </div> */}
+    </div>
     </>
   )
 }

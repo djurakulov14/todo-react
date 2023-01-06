@@ -28,9 +28,9 @@ export const MyPost = ({item, remove, number}) => {
 
   return (
       <div className={classes.MyPosts}>
-        <h2>{number}.{item.title}</h2>
-        {item.completed ? <p style={completedStyles}>completed</p> : <p style={UNcompletedStyles}>uncompleted</p>}
-        <MyButton onClick={(e) => remove(item)}>Удалить</MyButton>
+        <h2>{number}.{post.title}</h2>
+        {post.completed ? <p style={completedStyles}>completed</p> : <p style={UNcompletedStyles}>uncompleted</p>}
+        <MyButton onClick={(e) => remove(post)}>Удалить</MyButton>
         <MyButton onClick={showPostPage}>Открыть</MyButton>
         <MyButton onClick={() => setVisible(true)}>изменить</MyButton>
         <MyModal visible={visible} setVisible={setVisible}><EditForm setVisible={setVisible} post={post} setPost={setPost}/></MyModal>

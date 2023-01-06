@@ -14,7 +14,6 @@ export default function Header({arr ,setArr, filter, setFilter, id}) {
     const [visible, setVisible] = useState(false)
 
     const createPost = (newPost) => {
-      // dispatch({type: "ADD", payload: newPost})
       setArr([...arr, newPost])
       setVisible(false)
     }

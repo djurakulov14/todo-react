@@ -20,6 +20,7 @@ export const HomePage = () => {
     }, [])
 
     const removePost = (post) => {
+      request('http://localhost:7777/todos/' + post.id,"DELETE")
       setArr(arr.filter(p => p.id !== post.id))
     }
 

@@ -16,6 +16,7 @@ const PostForm = ({create}) => {
         }
         request('http://localhost:7777/todos',"POST", JSON.stringify(newPost))
         setPost({title: '', body: ''})
+        create(newPost)
     }
 
     return (
@@ -24,15 +25,9 @@ const PostForm = ({create}) => {
                 value={post.title}
                 onChange={e => setPost({...post, title: e.target.value})}
                 type="text"
-                placeholder="Название поста"
+                placeholder="Название Задания"
             />
-            <MyInput
-                value={post.body}
-                onChange={e => setPost({...post, body: e.target.value})}
-                type="text"
-                placeholder="Описание поста"
-            />
-            <MyButton onClick={addNewPost}>Создать пост</MyButton>
+            <MyButton onClick={addNewPost}>Создать Задание</MyButton>
         </form>
     );
 };
