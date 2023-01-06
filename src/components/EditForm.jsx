@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useHttp } from '../hook/useHTTP'
 import { MyButton } from './MyButton/MyButton'
+import { MyCheckbox } from './MyCheckbox/MyCheckbox'
 import MyInput from './MyInput/MyInput'
 
 export const EditForm = ({setVisible, post, setPost}) => {
@@ -16,6 +17,7 @@ export const EditForm = ({setVisible, post, setPost}) => {
     setVisible(false)
   }
 
+
   return (
     <form>
     <MyInput
@@ -24,6 +26,7 @@ export const EditForm = ({setVisible, post, setPost}) => {
         type="text"
         placeholder="Название поста"
     />
+    {post.completed ? <MyCheckbox checked onChange={() => setNewPost({...newPost, completed: !newPost.completed})}/> : <MyCheckbox onChange={() => setNewPost({...newPost, completed: !newPost.completed})}/>}
     <MyButton onClick={EditPost} >Edit</MyButton>
 </form>
   )

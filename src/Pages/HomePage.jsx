@@ -14,7 +14,6 @@ export const HomePage = () => {
     useEffect(() => {
       request('http://localhost:7777/todos')
         .then(res => {
-          console.log(res);
           setArr(res)
         })
     }, [])

@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { AuthContext } from '../Context/Auth';
 import { MyButton } from './MyButton/MyButton';
 import MyModal from './MyModal/MyModal';
 import PostFilter from './PostFilter';
 import PostForm from './PostForm';
 
 export default function Header({arr ,setArr, filter, setFilter, id}) {
+  const {auth, setAuth} = useContext(AuthContext)
+
 
     let newDate = new Date()
     let day = newDate.getDate();
@@ -17,6 +20,7 @@ export default function Header({arr ,setArr, filter, setFilter, id}) {
       setArr([...arr, newPost])
       setVisible(false)
     }
+
 
   return (
     <header>
