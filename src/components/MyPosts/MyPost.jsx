@@ -6,7 +6,7 @@ import MyModal from '../MyModal/MyModal'
 import classes from './MyPost.module.scss'
 
 
-export const MyPost = ({item, remove, number}) => {
+export const MyPost = ({item, remove, number, dispatch}) => {
   const [post, setPost] = useState(item)
   const [visible, setVisible] = useState(false)
   const navigate = useNavigate('/postPage')
@@ -33,7 +33,7 @@ export const MyPost = ({item, remove, number}) => {
         <MyButton onClick={(e) => remove(post)}>Удалить</MyButton>
         <MyButton onClick={showPostPage}>Открыть</MyButton>
         <MyButton onClick={() => setVisible(true)}>изменить</MyButton>
-        <MyModal visible={visible} setVisible={setVisible}><EditForm setVisible={setVisible} post={post} setPost={setPost}/></MyModal>
+        <MyModal visible={visible} setVisible={setVisible}><EditForm dispatch={dispatch} setVisible={setVisible} post={post} setPost={setPost}/></MyModal>
       </div>
   )
 }

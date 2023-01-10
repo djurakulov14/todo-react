@@ -5,7 +5,7 @@ import MyModal from './MyModal/MyModal';
 import PostFilter from './PostFilter';
 import PostForm from './PostForm';
 
-export default function Header({arr ,setArr, filter, setFilter, id}) {
+export default function Header({arr ,setArr, filter, setFilter, id, dispatch}) {
   const {auth, setAuth} = useContext(AuthContext)
 
 
@@ -17,7 +17,8 @@ export default function Header({arr ,setArr, filter, setFilter, id}) {
     const [visible, setVisible] = useState(false)
 
     const createPost = (newPost) => {
-      setArr([...arr, newPost])
+      dispatch({type: "ADD", payload:newPost})
+      console.log(newPost);
       setVisible(false)
     }
 

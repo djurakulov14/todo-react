@@ -4,7 +4,7 @@ import { MyButton } from './MyButton/MyButton'
 import { MyCheckbox } from './MyCheckbox/MyCheckbox'
 import MyInput from './MyInput/MyInput'
 
-export const EditForm = ({setVisible, post, setPost}) => {
+export const EditForm = ({setVisible, post, setPost, dispatch}) => {
 
   const {request, error, loading} = useHttp()
   const [newPost, setNewPost] = useState(post)
@@ -12,7 +12,8 @@ export const EditForm = ({setVisible, post, setPost}) => {
   const EditPost = (e) => {
     e.preventDefault()
 
-    request('http://localhost:7777/todos/' + post.id,"PATCH", JSON.stringify(newPost))
+    // request('http://localhost:7777/todos/' + post.id,"PATCH", JSON.stringify(newPost))
+    dispatch({type: "EDIT", payload: newPost})
     setPost(newPost)
     setVisible(false)
   }
@@ -26,7 +27,7 @@ export const EditForm = ({setVisible, post, setPost}) => {
         type="text"
         placeholder="Название поста"
     />
-    {post.completed ? <MyCheckbox checked onChange={() => setNewPost({...newPost, completed: !newPost.completed})}/> : <MyCheckbox onChange={() => setNewPost({...newPost, completed: !newPost.completed})}/>}
+    <MyCheckbox checked={newPost.completed} onChange={() => setNewPost({...newPost, completed: !newPost.completed})}/>
     <MyButton onClick={EditPost} >Edit</MyButton>
 </form>
   )

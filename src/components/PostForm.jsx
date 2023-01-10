@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useHttp } from '../hook/useHTTP';
 
 const PostForm = ({create}) => {
-    const [post, setPost] = useState({title: '', body: ''})
+    const [post, setPost] = useState({title: ''})
     const {request, error, loading} = useHttp()
 
 
@@ -14,8 +14,8 @@ const PostForm = ({create}) => {
         const newPost = {
             ...post, id: uuidv4(), completed: false
         }
-        request('http://localhost:7777/todos',"POST", JSON.stringify(newPost))
-        setPost({title: '', body: ''})
+        // request('http://localhost:7777/todos',"POST", JSON.stringify(newPost))
+        setPost({title: ''})
         create(newPost)
     }
 
